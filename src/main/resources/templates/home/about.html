@@ -1,11 +1,25 @@
 <!DOCTYPE html>
 <html layout:decorate="~{layouts/master}">
-  <head>
-    <title th:text="${title}"></title>
-  </head>
-  <body>
-    <div layout:fragment="content">
-      About
-    </div>
-  </body>
+<head>
+	<title th:text="${title}"></title>
+</head>
+<body>
+	<div layout:fragment="content">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-8 col-md-10 mx-auto">
+					<p>
+						<span class="font-bold">Application developed by:</span> 
+						<a href="https://twitter.com/danielgarax" target="_blank">Daniel Correa</a> 
+						- Angel	Ramos 
+						- Paola Vallejo
+					</p>
+					<p>
+						EAFIT University<br /> Medellin, Colombia<br /> 2021
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
 </html>
