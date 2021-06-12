@@ -20,6 +20,24 @@
 		      <hr>
 		    </div>
 		  </div>
+		  
+		  <div class="row">
+		    <div class="col-lg-8 col-md-10 mx-auto">
+		      <h2 class="post-title">Comments</h2>
+		      <ul>
+		       <li th:each="comment: ${post.getComments()}" th:inline="text">
+		       	[[${comment.getMessage()}]] - [[${comment.getCreatedAt()}]]
+		       	<form method="POST" th:action="@{/posts/deleteComment/{id}/(id=${comment.getId()})}">
+		       		<button type="submit" onclick="return confirm('Are you sure to delete this comment?');" class="submit-delete">
+		                <i class="fa fa-trash-alt" aria-hidden="true"></i>
+		            </button>
+		        </form>
+		       </li>
+		      </ul>
+		      <hr>
+		      <br />
+		    </div>
+		  </div>
 		</div>
 
 	</div>

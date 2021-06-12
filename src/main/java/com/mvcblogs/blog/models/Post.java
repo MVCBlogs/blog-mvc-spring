@@ -1,10 +1,12 @@
 package com.mvcblogs.blog.models;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.validation.constraints.NotBlank;
 
 import org.hibernate.annotations.CreationTimestamp;
@@ -71,4 +73,15 @@ public class Post {
   public void setUpdatedAt(Date updatedAt) {
 	this.updatedAt = updatedAt;
   }
+  
+  public List<Comment> getComments() {
+	return comments;
+  }
+	
+  public void setComments(List<Comment> comments) {
+	this.comments = comments;
+  }
+
+  @OneToMany(mappedBy = "post")
+  private List<Comment> comments;
 }
