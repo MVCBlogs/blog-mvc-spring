@@ -10,7 +10,7 @@
 			<div class="row">
 				<div class="col-lg-8 col-md-10 mx-auto">
 					<div class="post-preview" th:each="post: ${posts}">
-						<a>
+						<a th:href="@{/posts/{id}/(id=${post.getId()})}">
 							<h2 class="post-title" th:text="${post.getTitle()}"></h2>
 						</a>
 						<h3 class="post-subtitle font-300" th:text="${post.getDescription()}"></h3>
@@ -23,6 +23,32 @@
 				</div>
 			</div>
 		</div>
+		
+		  <div class="row">
+		    <div class="col-lg-8 col-md-10 mx-auto">
+		      <div class="card">
+		        <div class="card-header">
+		          Create a new post
+		        </div>
+		        <div class="card-body">
+		          <form method="POST" th:action="@{/posts/save}" th:object="${post}">
+		            <ul th:if="${#fields.hasErrors('*')}">
+					  <li th:each="err : ${#fields.errors('*')}" th:text="${err}">Input is incorrect</li>
+					</ul>
+		            <div class="form-group">
+		              <label>Post title:</label>
+		              <input type="text" th:field="*{title}" class="form-control" th:value="*{title}" placeholder="Enter title">
+		            </div>
+		            <div class="form-group">
+		              <label>Post description:</label>
+		              <textarea class="form-control" th:field="*{description}" th:value="*{description}" rows="3" placeholder="Enter description"></textarea>
+		            </div>
+		            <button type="submit" class="btn btn-primary">Submit</button>
+		          </form>
+		        </div>
+		      </div>
+		    </div>
+		  </div>
 
 	</div>
 </body>

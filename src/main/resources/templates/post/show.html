@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html layout:decorate="~{layouts/master}">
+<head>
+<title th:text="${title}"></title>
+</head>
+<body>
+	<div layout:fragment="content">
+
+		<div class="container">
+		  <div class="row">
+		    <div class="col-lg-8 col-md-10 mx-auto">
+		      <div class="post-preview">
+		        <h2 class="post-title" th:text="${post.getTitle()}"></h2>
+		        <p class="post-meta">Posted by
+		          <span class="font-bold">Admin</span>
+		          on <span th:text="${post.getCreatedAt()}"></span>
+		        <p class="post-subtitle font-300" th:text="${post.getDescription()}">
+		        </p>
+		      </div>
+		      <hr>
+		    </div>
+		  </div>
+		</div>
+
+	</div>
+</body>
+</html>
