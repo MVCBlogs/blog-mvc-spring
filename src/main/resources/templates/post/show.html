@@ -28,6 +28,7 @@
 		       <li th:each="comment: ${post.getComments()}" th:inline="text">
 		       	[[${comment.getMessage()}]] - [[${comment.getCreatedAt()}]]
 		       	<form method="POST" th:action="@{/posts/deleteComment/{id}/(id=${comment.getId()})}">
+		       		<input type="hidden" name="post_id" th:value="${post.getId()}" />
 		       		<button type="submit" onclick="return confirm('Are you sure to delete this comment?');" class="submit-delete">
 		                <i class="fa fa-trash-alt" aria-hidden="true"></i>
 		            </button>
@@ -38,6 +39,30 @@
 		      <br />
 		    </div>
 		  </div>
+		  
+		  <div class="row">
+		    <div class="col-lg-8 col-md-10 mx-auto">
+		      <div class="card">
+		        <div class="card-header">
+		          Create a new comment
+		        </div>
+		        <div class="card-body">
+		          <form method="POST" th:action="@{/posts/saveComment}" th:object="${comment}">
+		          <ul th:if="${#fields.hasErrors('*')}">
+					 <li th:each="err : ${#fields.errors('*')}" th:text="${err}">Input is incorrect</li>
+				  </ul>
+		            <div class="form-group">
+		              <label>Comment message:</label>
+		              <textarea class="form-control" th:field="*{message}" th:value="*{message}" rows="3" placeholder="Enter message"></textarea>
+		            </div>
+		            <input type="hidden" name="post_id" th:value="${post.getId()}" />
+		            <button type="submit" class="btn btn-primary">Submit</button>
+		          </form>
+		        </div>
+		      </div>
+		    </div>
+		  </div>
+		  
 		</div>
 
 	</div>

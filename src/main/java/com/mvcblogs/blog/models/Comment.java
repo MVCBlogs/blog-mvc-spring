@@ -29,7 +29,7 @@ public class Comment {
 	}
 	
 	public Long getId() {
-		return id;
+		return this.id;
 	}
 	
 	public void setId(Long id) {
@@ -37,7 +37,7 @@ public class Comment {
 	}
 	
 	public String getMessage() {
-		return message;
+		return this.message;
 	}
 	
 	public void setMessage(String message) {
@@ -45,7 +45,7 @@ public class Comment {
 	}
 	
 	public Date getCreatedAt() {
-		return createdAt;
+		return this.createdAt;
 	}
 	
 	public void setCreatedAt(Date createdAt) {
@@ -53,11 +53,19 @@ public class Comment {
 	}
 	
 	public Date getUpdatedAt() {
-		return updatedAt;
+		return this.updatedAt;
 	}
 	
 	public void setUpdatedAt(Date updatedAt) {
 		this.updatedAt = updatedAt;
+	}
+	
+	public Post getPost() {
+		return this.post;
+	}
+	
+	public void setPost(Post post) {
+		this.post = post;
 	}
 	
 	@ManyToOne
