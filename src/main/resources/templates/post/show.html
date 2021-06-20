@@ -48,7 +48,7 @@
 		        </div>
 		        <div class="card-body">
 		          <form method="POST" th:action="@{/posts/saveComment}" th:object="${comment}">
-		          <ul th:if="${#fields.hasErrors('*')}">
+		          <ul class="errors" th:if="${#fields.hasErrors('*')}">
 					 <li th:each="err : ${#fields.errors('*')}" th:text="${err}">Input is incorrect</li>
 				  </ul>
 		            <div class="form-group">
