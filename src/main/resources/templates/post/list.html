@@ -37,11 +37,11 @@
 					</ul>
 		            <div class="form-group">
 		              <label>Post title:</label>
-		              <input type="text" th:field="*{title}" class="form-control" th:value="*{title}" placeholder="Enter title">
+		              <input type="text" th:field="*{title}" required class="form-control" th:value="*{title}" placeholder="Enter title">
 		            </div>
 		            <div class="form-group">
 		              <label>Post description:</label>
-		              <textarea class="form-control" th:field="*{description}" th:value="*{description}" rows="3" placeholder="Enter description"></textarea>
+		              <textarea class="form-control" th:field="*{description}" required th:value="*{description}" rows="3" placeholder="Enter description"></textarea>
 		            </div>
 		            <button type="submit" class="btn btn-primary">Submit</button>
 		          </form>
