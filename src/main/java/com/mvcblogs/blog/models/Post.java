@@ -15,7 +15,10 @@ import org.hibernate.annotations.UpdateTimestamp;
 @Entity
 public class Post {
 
-  private @Id @GeneratedValue Long id;
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  @Column(name = "id", nullable = false)
+  private Long id;
   @NotBlank(message = "Title is mandatory")
   private String title;
   @NotBlank(message = "Description is mandatory")
